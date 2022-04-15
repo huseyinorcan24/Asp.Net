@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SaveImages</title>
+</head>
+<body>
+    <div> 
+        <h2>Oda Resmi Ekle</h2>
+        @using (Html.BeginForm("SaveImages", "VechilYonet", FormMethod.Post, new {enctype="multipart/form-data"}))
+         {
+            @Html.Hidden("hiddenid", Url.RequestContext.RouteData.Values["id"])
+            <p>
+                @Html.TextBox("UploadedIamge", "", new {type = "File"})
+            </p>
+            <p>
+                <input type="submit" value="Yükle" /> 
+            </p>
+         }
+        @{ 
+            if(ViewBag.Message != null)
+            {
+                var dir = "~/Vechilımages/" + Url.RequestContext.RouteData.Values["id"] + ".jpeg";
+                @ViewBag.Message
+                <p>
+                    <img src="@Url.Content(dir)" width="300" /> 
+                </p>
+            }
+        }
+         <hr />
+            <p> @Html.ActionLink("Oda Listesi", "Index")</p>
+    </div>
+</body>
+</html>

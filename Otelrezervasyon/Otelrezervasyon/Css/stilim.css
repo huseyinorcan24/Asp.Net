@@ -1,0 +1,16 @@
+﻿body {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #eee;
+}
+
+a:link, a:visited [{
+    color: #0000cc;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: crimson;
+    text-decoration: none;
+}

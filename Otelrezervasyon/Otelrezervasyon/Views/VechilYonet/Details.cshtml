@@ -1,0 +1,58 @@
+﻿@model Otelrezervasyon.Models.Tbl_Reservasyon
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Tbl_Reservasyon</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Odatürü)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Odatürü)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Katno)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Katno)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Odano)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Odano)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Fiyat)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RezervasyonId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

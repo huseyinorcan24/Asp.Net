@@ -1,0 +1,78 @@
+﻿@model Otelrezervasyon.Models.Tbl_Rezervation
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rezervation</title>
+    <link href="~/Css/stilim.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Kahramanmaraş Otel</h1>
+        <h3>Otel Oda Rezervasyonu</h3>
+        <table border="1" cellpadding="5" cellspacing="0" width="600">
+            <tr>
+                <td width="40%">
+                    <h4>Oda Türü : @ViewData["Oda Türü"]</h4>
+                    <h4>Kat Numarası : @ViewData["Kat Numarası"]</h4>
+                    <h4>Oda NuMarası : @Url.RequestContext.RouteData.Values["id"]</h4>
+                </td>
+                <td>
+                    @{
+                        var dir = "~/Vechilımages/" + Url.RequestContext.RouteData.Values["id"] + ".jpeg";
+                        <img src="@Url.Content(dir)" width="300" />
+                    }
+                </td>
+            </tr>
+        </table>
+        @{
+            if (ViewBag.Message == null)
+            {
+                <h3>Rezervasyon Formu</h3>
+
+                using (Html.BeginForm())
+                {
+                    <table border="1" cellpadding="5" cellspacing="0" width="600">
+                        <tr>
+                            @Html.Hidden("RezervasyonId", Url.RequestContext.RouteData.Values["id"])
+                            <td width="40%">TC Kimlik:</td>
+                            <td>@Html.EditorFor(model => model.TcKimlik)</td>
+
+                        </tr>
+                        <tr>
+                            <td>Ad Soyad:</td>
+                            <td>@Html.EditorFor(model => model.AdSoyad)</td>
+                        </tr>
+                        <tr>
+                            <td>Rezervasyon Tarihi:</td>
+                            <td>@Html.EditorFor(model => model.AlmaTarihi)</td>
+                        </tr>
+                        <tr>
+                            <td>Rezervasyon Bitişi:</td>
+                            <td>@Html.EditorFor(model => model.TeslimTarihi)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Rezervasyon Yap" /></td>
+                        </tr>
+
+                    </table>
+                }
+
+            }
+        }
+
+    </div>
+    <h3>@ViewBag.Message</h3>
+    <hr />
+    <p>
+        @Html.ActionLink("Oda Bilgisi", "Details", new { id = Url.RequestContext.RouteData.Values["id"] }) |
+        @Html.ActionLink("Oda Listesi", "Index")
+    </p>
+</body>
+</html>

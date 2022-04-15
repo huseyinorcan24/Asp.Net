@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Db_RezervasyonModelStoreContainer" CdmEntityContainer="Db_RezervasyonEntities">
+    <EntitySetMapping Name="Tbl_Reservasyon">
+      <EntityTypeMapping TypeName="Db_RezervasyonModel.Tbl_Reservasyon">
+        <MappingFragment StoreEntitySet="Tbl_Reservasyon">
+          <ScalarProperty Name="RezervasyonId" ColumnName="RezervasyonId" />
+          <ScalarProperty Name="Odatürü" ColumnName="Odatürü" />
+          <ScalarProperty Name="Katno" ColumnName="Katno" />
+          <ScalarProperty Name="Odano" ColumnName="Odano" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Rezervation">
+      <EntityTypeMapping TypeName="Db_RezervasyonModel.Tbl_Rezervation">
+        <MappingFragment StoreEntitySet="Tbl_Rezervation">
+          <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+          <ScalarProperty Name="TeslimTarihi" ColumnName="TeslimTarihi" />
+          <ScalarProperty Name="AlmaTarihi" ColumnName="AlmaTarihi" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="TcKimlik" ColumnName="TcKimlik" />
+          <ScalarProperty Name="RezervasyonId" ColumnName="RezervasyonId" />
+          <ScalarProperty Name="RezervationId" ColumnName="RezervationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

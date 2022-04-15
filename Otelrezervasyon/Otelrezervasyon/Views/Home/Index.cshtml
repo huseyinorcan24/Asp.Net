@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>Kahramanmaraş Otel</h1>
+
+        <h3>Amacımız:</h3>
+        <p> Şehir merkezindeki bu şık otel; Kahramanmaraş Arkeoloji Müzesi'ne 10, en yakın otobüs durağına ise 7 dakika yürüme mesafesindedir. Tarihi Kahramanmaraş Kalesi'ne ise 1 km uzaklıktadır.</p>
+        <hr />
+        @Html.ActionLink("Anasayfa", "Index") |
+        @Html.ActionLink("Hakkımızda", "About") |
+        @Html.ActionLink("Odalar", "Index","Vehicle") |
+        @Html.ActionLink("İletişim", "Contact") 
+    </div>
+</body>
+</html>

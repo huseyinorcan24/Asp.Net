@@ -1,0 +1,59 @@
+﻿@model Otelrezervasyon.Models.Tbl_Reservasyon
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Css/stilim.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Kahramanmaraş Otel</h1>
+        <h3> Oda Bilgileri</h3>
+        <hr />
+        <table border="1" cellpadding="5" cellspacing="0" width="500">
+            <tr>
+                <td colspan="2">
+                    @{
+                        var dir = "~/Vechilımages/" + Html.DisplayFor(model => model.RezervasyonId) + ".jpeg";
+                        string FolderPath = Path.Combine(Server.MapPath(dir));
+                        if (System.IO.File.Exists(FolderPath))
+                        {
+                            <img src="@Url.Content(dir)" width="500"/>
+                            
+                        }
+
+
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td width="30%">Oda Türü</td>
+                <td>@Html.DisplayFor(model => model.Odatürü)</td>
+            </tr>
+            <tr>
+                <td width="30%">Kat Numarası</td>
+                <td>@Html.DisplayFor(model => model.Katno)</td>
+            </tr>
+            <tr>
+                <td width="30%">Oda Numarası</td>
+                <td>@Html.DisplayFor(model => model.Odano)</td>
+            </tr>
+            <tr>
+                <td width="30%">Oda Fiyatı</td>
+                <td>@Html.DisplayFor(model => model.Fiyat)</td>
+            </tr>
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Rezervasyon", "Rezervation", new { id = Model.RezervasyonId }) |
+        @Html.ActionLink("Oda Listesi", "Index")
+    </p>
+</body>
+</html>

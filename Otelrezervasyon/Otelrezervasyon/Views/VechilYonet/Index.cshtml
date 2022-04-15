@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Otelrezervasyon.Models.Tbl_Reservasyon>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Css/stilim.css" rel="stylesheet" />
+</head>
+<body>
+    <h3>Oda Listesi</h3>
+    <p>
+        @Html.ActionLink("Oda Ekle", "Create")
+    </p>
+    <table class="table" border="1" cellpadding="3" cellspacing="0">
+        <tr>
+            <th>
+                Oda Resmi
+            </th>
+            <th>
+                Oda Türü
+            </th>
+            <th>
+                Kat Numarası
+            </th>
+            <th>
+               Oda Numarası
+            </th>
+            <th>
+               Oda Fiyatları
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @{
+                    var dir = "~/Vechilımages/" + item.RezervasyonId + ".jpeg";
+                    <img src="@Url.Content(dir)" width="100" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Odatürü)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Katno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Odano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fiyat)
+            </td>
+            <td>
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.RezervasyonId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.RezervasyonId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.RezervasyonId }) |
+                @Html.ActionLink("Resim Yükle", "SaveImages", new { id = item.RezervasyonId }) 
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

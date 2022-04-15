@@ -1,0 +1,62 @@
+﻿@model Otelrezervasyon.Models.Tbl_Reservasyon
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sil</title>
+    <link href="~/Css/stilim.css" rel="stylesheet" />
+</head>
+<body>
+    <h3>Bunu silmek istediğinizden emin misiniz?</h3>
+    <div>
+        <h4>Oda Bilgileri</h4>
+        <hr />
+        @{ 
+            var dir = "~/Vechilımages/" + Model.RezervasyonId + ".jpeg";
+            <img src="@Url.Content(dir)" width="300" />
+
+        }
+        <table border="1" cellpadding="5" cellspacing="0" width="500">
+            <tr>
+                <td> Oda Türü</td>
+                <td>@Html.DisplayFor(model => model.Odatürü)</td>
+            </tr>
+            <tr>
+                <td> Kat Numarası</td>
+                <td> @Html.DisplayFor(model => model.Katno)</td>
+            </tr>
+            <tr>
+                <td> Oda Numarası</td>
+                <td>@Html.DisplayFor(model => model.Odano)</td>
+            </tr>
+            <tr>
+                <td> Oda Fiyatı</td>
+                <td> @Html.DisplayFor(model => model.Fiyat)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Sil" class="btn btn-default" /> |
+                            @Html.ActionLink("Oda Listesi", "Index")
+                        </div>
+                    }
+                </td>
+            </tr>
+        </table>
+      
+    
+       
+    </div>
+</body>
+</html>
